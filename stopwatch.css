@@ -1,4 +1,5 @@
-
+<!-- Created By khushi -->
+<!-- CSS file of stopwatch is added -->
 body{
     background-color: rgb(115, 10, 245);
      
@@ -27,7 +28,7 @@ body{
     
 
 }
- 
+ <!-- button  -->
 .container button{
     width: 120px;
     height: 38px;
