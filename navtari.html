@@ -12,7 +12,7 @@
          <div class="title">
             <b>NAVARATRI</b>
          </div>
-         
+         <!-- to check email  -->
             <div class="email-field">
                
                <button type="submit"></button>
@@ -77,6 +77,7 @@
          const sec = document.querySelector(".sec .numb");
          var timer = setInterval(()=>{
            var currentDate = new Date().getTime();
+           <!-- 2024 -->
            var launchDate = new Date('oct 3, 2024 00:01:00').getTime();
            var duration = launchDate - currentDate;
            var days = Math.floor(duration / (1000 * 60 * 60 * 24));
