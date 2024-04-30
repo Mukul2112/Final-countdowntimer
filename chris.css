@@ -15,7 +15,7 @@ html,body{
   background-position: center;
 }
 ::selection{
-  color: white;
+  color: rgb(248, 244, 244);
   background: #FC4782;
 }
 .wrapper{

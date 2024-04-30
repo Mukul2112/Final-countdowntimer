@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
-<!-- Created By khushi -->
 *{
   margin: 0;
   padding: 0;
@@ -12,7 +11,7 @@ html,body{
   height: 100%;
   width: 100%;
   place-items: center;
-  background: url("https://www.lohrifestival.org/images/wal-big6.jpg") no-repeat;
+  background: url("https://i.ytimg.com/vi/Cr0h860flSg/maxresdefault.jpg") no-repeat;
   background-size: cover;
   background-position: center;
 }
