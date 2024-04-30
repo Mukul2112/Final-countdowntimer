@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festival Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        input[type="text"], input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Festival Timer</h1>
+        <h2>Add Festival</h2>
+        <form id="addForm">
+            <label for="festivalName">Festival Name:</label>
+            <input type="text" id="festivalName" name="festivalName" required>
+            <label for="festivalDate">Festival Date:</label>
+            <input type="date" id="festivalDate" name="festivalDate" required>
+            <input type="submit" value="Add Festival">
+        </form>
+
+        <h2>Set Timer</h2>
+        <form id="timerForm">
+            <label for="selectFestival">Select Festival:</label>
+            <select id="selectFestival" name="selectFestival" required>
+                <!-- Options will be populated by JavaScript -->
+            </select>
+            <input type="submit" value="Set Timer">
+        </form>
+
+        <h2>List of Festivals</h2>
+        <ul id="festivalList">
+            <!-- Festivals will be populated by JavaScript -->
+        </ul>
+    </div>
+<script>
+        const addForm = document.getElementById('addForm');
+        const timerForm = document.getElementById('timerForm');
+        const selectFestival = document.getElementById('selectFestival');
+        const festivalList = document.getElementById('festivalList');
+
+        addForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const festivalName = document.getElementById('festivalName').value;
+            const festivalDate = document.getElementById('festivalDate').value;
+
+            const option = document.createElement('option');
+            option.text = festivalName;
+            option.value = festivalDate;
+            selectFestival.add(option);
+
+            const listItem = document.createElement('li');
+            listItem.textContent = `${festivalName}: ${festivalDate}`;
+            festivalList.appendChild(listItem);
+
+            addForm.reset();
+        });
+
+        timerForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const selectedFestival = selectFestival.value;
+            alert(`Timer set for ${selectedFestival}`);
+            // You can further enhance this to set a timer using JavaScript
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festival Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        input[type="text"], input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        button {
+            background-color: #f44336;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Festival Timer</h1>
+        <h2>Add Festival</h2>
+        <form id="addForm">
+            <label for="festivalName">Festival Name:</label>
+            <input type="text" id="festivalName" name="festivalName" required>
+            <label for="festivalDate">Festival Date:</label>
+            <input type="date" id="festivalDate" name="festivalDate" required>
+            <input type="submit" value="Add Festival">
+        </form>
+
+        <h2>List of Festivals</h2>
+        <ul id="festivalList">
+            <!-- Festivals will be populated by JavaScript -->
+        </ul>
+
+        <h2>Remove Festival</h2>
+        <form id="removeForm">
+            <label for="selectFestivalToRemove">Select Festival:</label>
+            <select id="selectFestivalToRemove" name="selectFestivalToRemove" required>
+                <!-- Options will be populated by JavaScript -->
+            </select>
+            <button type="button" id="removeButton">Remove Festival</button><script>
+        const addForm = document.getElementById('addForm');
+        const removeForm = document.getElementById('removeForm');
+        const festivalList = document.getElementById('festivalList');
+        const selectFestivalToRemove = document.getElementById('selectFestivalToRemove');
+        const removeButton = document.getElementById('removeButton');
+
+        addForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const festivalName = document.getElementById('festivalName').value;
+            const festivalDate = document.getElementById('festivalDate').value;
+
+            const listItem = document.createElement('li');
+            listItem.textContent = `${festivalName}: ${festivalDate}`;
+            festivalList.appendChild(listItem);
+
+            const option = document.createElement('option');
+            option.text = festivalName;
+            option.value = festivalDate;
+            selectFestivalToRemove.add(option);
+
+            addForm.reset();
+        });
+
+        removeButton.addEventListener('click', function() {
+            const selectedOption = selectFestivalToRemove.selectedOptions[0];
+            if (selectedOption) {
+                selectedOption.remove();
+                // You can further enhance this to remove the corresponding list item from the UI
+            } else {
+                alert("Please select a festival to remove.");
+            }
+        });
+    </script>
+</body>
+</html>
+        </form>
+    </div>
