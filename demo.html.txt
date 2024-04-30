@@ -69,3 +69,35 @@
             <!-- Festivals will be populated by JavaScript -->
         </ul>
     </div>
+<script>
+        const addForm = document.getElementById('addForm');
+        const timerForm = document.getElementById('timerForm');
+        const selectFestival = document.getElementById('selectFestival');
+        const festivalList = document.getElementById('festivalList');
+
+        addForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const festivalName = document.getElementById('festivalName').value;
+            const festivalDate = document.getElementById('festivalDate').value;
+
+            const option = document.createElement('option');
+            option.text = festivalName;
+            option.value = festivalDate;
+            selectFestival.add(option);
+
+            const listItem = document.createElement('li');
+            listItem.textContent = `${festivalName}: ${festivalDate}`;
+            festivalList.appendChild(listItem);
+
+            addForm.reset();
+        });
+
+        timerForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const selectedFestival = selectFestival.value;
+            alert(`Timer set for ${selectedFestival}`);
+            // You can further enhance this to set a timer using JavaScript
+        });
+    </script>
+</body>
+</html>
