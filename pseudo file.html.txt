@@ -77,6 +77,41 @@
             <select id="selectFestivalToRemove" name="selectFestivalToRemove" required>
                 <!-- Options will be populated by JavaScript -->
             </select>
-            <button type="button" id="removeButton">Remove Festival</button>
+            <button type="button" id="removeButton">Remove Festival</button><script>
+        const addForm = document.getElementById('addForm');
+        const removeForm = document.getElementById('removeForm');
+        const festivalList = document.getElementById('festivalList');
+        const selectFestivalToRemove = document.getElementById('selectFestivalToRemove');
+        const removeButton = document.getElementById('removeButton');
+
+        addForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const festivalName = document.getElementById('festivalName').value;
+            const festivalDate = document.getElementById('festivalDate').value;
+
+            const listItem = document.createElement('li');
+            listItem.textContent = `${festivalName}: ${festivalDate}`;
+            festivalList.appendChild(listItem);
+
+            const option = document.createElement('option');
+            option.text = festivalName;
+            option.value = festivalDate;
+            selectFestivalToRemove.add(option);
+
+            addForm.reset();
+        });
+
+        removeButton.addEventListener('click', function() {
+            const selectedOption = selectFestivalToRemove.selectedOptions[0];
+            if (selectedOption) {
+                selectedOption.remove();
+                // You can further enhance this to remove the corresponding list item from the UI
+            } else {
+                alert("Please select a festival to remove.");
+            }
+        });
+    </script>
+</body>
+</html>
         </form>
     </div>
