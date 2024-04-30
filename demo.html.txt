@@ -43,3 +43,29 @@
         }
     </style>
 </head>
+<body>
+    <div class="container">
+        <h1>Festival Timer</h1>
+        <h2>Add Festival</h2>
+        <form id="addForm">
+            <label for="festivalName">Festival Name:</label>
+            <input type="text" id="festivalName" name="festivalName" required>
+            <label for="festivalDate">Festival Date:</label>
+            <input type="date" id="festivalDate" name="festivalDate" required>
+            <input type="submit" value="Add Festival">
+        </form>
+
+        <h2>Set Timer</h2>
+        <form id="timerForm">
+            <label for="selectFestival">Select Festival:</label>
+            <select id="selectFestival" name="selectFestival" required>
+                <!-- Options will be populated by JavaScript -->
+            </select>
+            <input type="submit" value="Set Timer">
+        </form>
+
+        <h2>List of Festivals</h2>
+        <ul id="festivalList">
+            <!-- Festivals will be populated by JavaScript -->
+        </ul>
+    </div>
